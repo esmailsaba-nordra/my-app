@@ -41,7 +41,7 @@ function ChatBox() {
 			oldData.push(newMessage);
 			return { ...old, data: [...oldData] };
 		});
-		const channel = new BroadcastChannel("chat");	
+		const channel = new BroadcastChannel("chat");
 		channel.postMessage(updatedData);
 		channel.close();
 	};
@@ -64,6 +64,7 @@ function ChatBox() {
 		const channel = new BroadcastChannel("chat");
 		channel.postMessage(updatedData);
 		channel.close();
+		setEditingMessage(null);
 	};
 
 	const handleDelete = async (id) => {
